@@ -80,6 +80,10 @@ If no data is present in the database, following JSON will be returned on all en
 
 
 
+## Run the project
+
+`mvn package && mvn spring-boot:run`
+
 ## To do ideas
 * Do not save exchange rates if state has not changed
 * Use MongoDB

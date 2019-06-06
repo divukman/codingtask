@@ -48,7 +48,8 @@ public class CurrencyServiceImp implements CurrencyService {
 
     @Override
     public Optional<Currency> getLatestCurrency() {
-        return Optional.of(currencyRepository.findTopByOrderByIdDesc());
+        final Currency currency = currencyRepository.findTopByOrderByIdDesc();
+        return Optional.ofNullable(currency);
     }
 
     @Override

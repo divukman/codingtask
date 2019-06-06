@@ -13,7 +13,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler
-    public final ResponseEntity<Object> handleProjectIdException(final NoDataException ex, final WebRequest webRequest) {
+    public final ResponseEntity<Object> handleNoDataException(final NoDataException ex, final WebRequest webRequest) {
         final ResponseNoData exceptionResponse = new ResponseNoData(ex.getMessage());
         return new ResponseEntity<>(exceptionResponse, HttpStatus.OK);
     }

@@ -22,7 +22,7 @@ Default behavior is to pool every 10 seconds for USD exchange rates. Rates are s
 
 ## REST API
 
-The REST API to the example app is described below.
+The REST API is described below.
 
 ### Get latest rate
 

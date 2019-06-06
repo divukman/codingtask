@@ -51,6 +51,8 @@ The REST API is described below.
 
 `GET /api/v1/currency/getAllInRange`
 
+There are two request params for dates, from and to, in following format: `yyy-MM-dd`, see example below.
+
     curl -i -H "Accept: application/json" "http://localhost:8080/api/v1/currency/getAllInRange?from=2019-06-06&to=2019-06-06"
 
 #### Response

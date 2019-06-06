@@ -1,0 +1,83 @@
+{
+	"info": {
+		"_postman_id": "b30e753c-d000-43bb-9e82-80136c8390e8",
+		"name": "CODING_TEST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://blockchain.info/ticker?currency\n",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://blockchain.info/ticker?currency\n&currency",
+					"protocol": "https",
+					"host": [
+						"blockchain",
+						"info"
+					],
+					"path": [
+						"ticker"
+					],
+					"query": [
+						{
+							"key": "currency\n",
+							"value": null
+						},
+						{
+							"key": "currency",
+							"value": null
+						}
+					]
+				},
+				"description": "https://blockchain.info/ticker?currency"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost get latest",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/currency",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"currency"
+					]
+				},
+				"description": "https://blockchain.info/ticker?currency"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost get in range",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/currency",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"currency"
+					]
+				},
+				"description": "https://blockchain.info/ticker?currency"
+			},
+			"response": []
+		}
+	]
+}

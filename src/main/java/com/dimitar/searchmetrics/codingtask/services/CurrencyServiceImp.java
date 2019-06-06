@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -45,4 +46,13 @@ public class CurrencyServiceImp implements CurrencyService {
         currencyRepository.deleteById(id);
     }
 
+    @Override
+    public Optional<Currency> getLatestCurrency() {
+        return Optional.of(currencyRepository.findTopByOrderByIdDesc());
+    }
+
+    @Override
+    public Iterable<Currency> findAllCurrenciesInRange(Date start, Date end) {
+        return currencyRepository.getAllBetweenDates(start, end);
+    }
 }

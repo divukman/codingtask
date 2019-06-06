@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
@@ -14,33 +15,34 @@ import java.io.IOException;
 
 /**
  * Simple client for a blockchain.com rest API.
+ * @ToDo: move all autowiring to constructor, for eventual mocking in unit test
  */
 @Component
 @Slf4j
 public class BlockChainClient implements ICryptoClient {
-
     @Value("${appconfig.blockchain.api}")
     private String URL_BLOCKCHAIN;
 
     @Value("${appconfig.blockchain.api.USD}")
     private String USD;
 
-    //@Todo: move all autowiring to constructor, for eventual mocking in unit test
     @Autowired
     CurrencyService currencyService;
+
 
 
     /**
      * Gets the new exchange rates and saves to local database.
      * @return currency object if operation has succeeded, null otherwise
      */
+    @Scheduled(fixedRateString = "${appconfig.check.period.millis}")
     public Currency updateExchangeRates() {
         final RestTemplate restTemplate = new RestTemplate();
         final String strRates = restTemplate.getForObject(URL_BLOCKCHAIN, String.class);
 
         Currency result = null;
 
-        System.out.println(strRates);
+        log.info("Got data from" + URL_BLOCKCHAIN + " : " + strRates);
 
         final ObjectMapper objectMapper = new ObjectMapper();
         try {

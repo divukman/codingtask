@@ -9,7 +9,6 @@ import javax.persistence.Entity;
 @Entity
 @Data
 public class Currency extends AbstractDomainClass {
-
     @JsonIgnore
     private String name;
 
@@ -21,4 +20,8 @@ public class Currency extends AbstractDomainClass {
     private Double sell;
     private String symbol;
 
+    @JsonProperty("name")
+    public String getName() {
+        return name;
+    }
 }

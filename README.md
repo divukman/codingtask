@@ -89,6 +89,7 @@ If no data is present in the database, following JSON will be returned on all en
 ## To do ideas
 * Do not save exchange rates if state has not changed
 * Use MongoDB
-* Add other currencies?
+* Add other currencies? Refactor the DB layer?
+* Use application events to decouple getting and saving the data.
 * Write unit tests
 * ...
